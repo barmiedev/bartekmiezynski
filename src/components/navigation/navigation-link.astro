@@ -1,5 +1,5 @@
 ---
-import type { Link } from '../types';
+import type { Link } from './navigation.astro';
 
 const { href, label } = Astro.props as Link;
 const isActive = Astro.url.pathname === href;
