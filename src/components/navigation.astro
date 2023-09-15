@@ -1,0 +1,17 @@
+---
+import NavigationGroup from './navigation-group.astro';
+---
+
+<header class='w-screen absolute top-0 flex justify-center'>
+  <nav class='container flex justify-between w-full text-white p-8'>
+    <h1>Katastrofa</h1>
+    <NavigationGroup
+      links={[
+        { href: '/', label: 'Katastrofa' },
+        { href: '/live', label: 'Live' },
+        { href: '/press', label: 'Press' },
+        { href: '/kontakt', label: 'Kontakt' },
+      ]}
+    />
+  </nav>
+</header>

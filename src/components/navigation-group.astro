@@ -1,0 +1,10 @@
+---
+import NavigationLink from './navigation-link.astro';
+import type { Link } from '../types';
+
+const { links } = Astro.props;
+---
+
+<ul class='flex space-x-8'>
+  {links.map((link: Link) => <NavigationLink {...link} />)}
+</ul>
