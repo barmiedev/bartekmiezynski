@@ -36,4 +36,10 @@
       font-family: 'Playfair Display', sans-serif;
     }
   }
+  body {
+    @apply max-h-screen overflow-hidden;
+    svg {
+      @apply fill-[var(--tertiary)] hover:fill-[var(--accent)] w-6 h-6 transition-colors duration-100 ease-in-out;
+    }
+  }
 }
