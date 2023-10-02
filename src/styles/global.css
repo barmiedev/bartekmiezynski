@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: #040202;
+    --text: #ffffff;
+    --primary: #841010;
+    --secondary: #3f0808;
+    --accent: #8a5c5c;
+    --tertiary: #ffffff3d;
+  }
+}
+
+@layer base {
+  * {
+    @apply bg-[var(--background)] text-[var(--text)];
+    font-family: 'inconsolata', 'Maitree', sans-serif;
+  }
+  html {
+    h1 {
+      @apply text-6xl;
+      font-family: 'Playfair Display', sans-serif;
+    }
+    h2 {
+      @apply text-3xl italic text-[var(--accent)];
+      font-family: 'Playfair Display', sans-serif;
+    }
+    h3 {
+      @apply text-2xl text-[var(--tertiary)];
+      font-family: 'Playfair Display', sans-serif;
+    }
+    h4 {
+      @apply text-xl;
+      font-family: 'Playfair Display', sans-serif;
+    }
+  }
+  body {
+    @apply max-h-screen overflow-hidden;
+    svg {
+      @apply fill-[var(--tertiary)] hover:fill-[var(--accent)] w-6 h-6 transition-colors duration-100 ease-in-out;
+    }
+  }
+}

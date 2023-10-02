@@ -1,0 +1,14 @@
+---
+import type { Link } from './navigation.astro';
+
+const { href, label } = Astro.props as Link;
+const isActive = Astro.url.pathname === href;
+---
+
+<li
+  class={`transition-colors duration-100 text-lg ${
+    isActive ? 'text-primary' : 'hover:text-accent'
+  }`}
+>
+  <a href={href}>{label}</a>
+</li>
