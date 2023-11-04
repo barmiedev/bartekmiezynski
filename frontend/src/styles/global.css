@@ -37,7 +37,7 @@
     }
   }
   body {
-    @apply max-h-screen overflow-hidden;
+    @apply max-h-screen;
     svg {
       @apply fill-[var(--tertiary)] hover:fill-[var(--accent)] w-6 h-6 transition-colors duration-100 ease-in-out;
     }
