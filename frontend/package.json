@@ -8,6 +8,7 @@
     "@fontsource/maitree": "^5.0.8",
     "@fontsource/playfair-display": "^5.0.13",
     "@sanity/astro": "2.1.1",
+    "@sanity/image-url": "^1.0.2",
     "astro": "^3.4.3"
   },
   "scripts": {
@@ -16,14 +17,12 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "format": "prettier --write ."
     "format": "prettier --write 'src/**/*.{astro,js,jsx,ts,tsx,json,md}'"
   },
   "type": "module",
   "devDependencies": {
     "tailwindcss": "^3.3.5",
     "autoprefixer": "^10.4.16",
-    "postcss": "^8.4.31"
     "postcss": "^8.4.31",
     "prettier-plugin-organize-imports": "^3.2.3",
     "prettier-plugin-astro": "^0.12.1"

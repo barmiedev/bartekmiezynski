@@ -1,0 +1,15 @@
+---
+import imageUrlBuilder from '@sanity/image-url';
+import { sanityClient } from 'sanity:client';
+
+const builder = imageUrlBuilder(sanityClient);
+
+const { node } = Astro.props;
+const { width = 960, height = 960 } = Astro.props;
+
+const image =
+  node &&
+  builder.image(node).width(width).height(height).fit('crop').auto('format');
+---
+
+{image && <img src={image.url()} alt={node.alt || ''} title={node.alt} />}
