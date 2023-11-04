@@ -1,0 +1,46 @@
+---
+import Layout from '@layouts/Layout.astro';
+import { getCurrentPromoRelease, getImage } from '@lib/api';
+import SanityPicture from '@components/ui/sanity-picture.astro';
+import Box from '@components/box/box.astro';
+
+const current = await getCurrentPromoRelease();
+const cover = await getImage(current.cover?._ref);
+---
+
+<Layout title='Promo'>
+  <div class='space-y-8'>
+    <section class='grid md:grid-cols-2 lg:grid-cols-4 gap-8'>
+      <SanityPicture node={cover.photo} width='1000' height='1000' />
+      <div class='lg:col-span-3'>
+        <div class='flex h-full items-center'>
+          <div class='space-y-4'>
+            <h1>{current.title}</h1>
+            <h2>Bartek Mieżyński</h2>
+            <p>
+              Premiera: {
+                new Date(current.releaseDate).toLocaleDateString('pl-PL')
+              }
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class='grid lg:grid-cols-3 md:grid-cols-2 gap-8'>
+      <Box title='Notka prasowa' content={current.pressNote} withCopy />
+      <Box
+        title='Bio'
+        content='Tu na pewno niebawem znajdzie się odpowiednie bio'
+        withCopy
+      />
+      <Box title='Do pobrania' withSlot>
+        <ul>
+          <li>Presspack</li>
+          <li>WAV</li>
+          <li>MP3</li>
+          <li>Zdjęcia</li>
+        </ul>
+      </Box>
+    </section>
+  </div>
+</Layout>
