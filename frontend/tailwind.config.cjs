@@ -9,12 +9,12 @@ module.exports = {
     },
     extend: {
       colors: {
-        'background': '#040202',
-        'text': '#ffffff',
-        'primary': '#841010',
-        'secondary': '#3f0808',
-        'accent': '#8a5c5c',
-        'tertiary': '#ffffff3d',
+        background: '#040202',
+        text: '#ffffff',
+        primary: '#841010',
+        secondary: '#3f0808',
+        accent: '#8a5c5c',
+        tertiary: '#ffffff3d',
       },
     },
   },

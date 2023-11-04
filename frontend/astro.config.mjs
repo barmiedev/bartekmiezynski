@@ -1,7 +1,7 @@
-import { defineConfig } from 'astro/config';
-import tailwind from '@astrojs/tailwind';
 import netlify from '@astrojs/netlify/functions';
+import tailwind from '@astrojs/tailwind';
 import sanity from '@sanity/astro';
+import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
