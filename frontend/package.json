@@ -7,10 +7,8 @@
     "@fontsource/inconsolata": "^5.0.8",
     "@fontsource/maitree": "^5.0.8",
     "@fontsource/playfair-display": "^5.0.13",
-    "astro": "^3.4.3",
-    "astro-sanity": "^1.1.7",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "@sanity/astro": "2.1.1",
+    "astro": "^3.4.3"
   },
   "scripts": {
     "dev": "astro dev",
