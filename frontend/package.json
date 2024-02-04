@@ -2,7 +2,7 @@
   "name": "bartekmiezynski",
   "version": "1.0.alpha",
   "dependencies": {
-    "@astrojs/netlify": "^3.0.4",
+    "@astrojs/netlify": "^5.0.1",
     "@astrojs/tailwind": "^5.1.0",
     "@fontsource/inconsolata": "^5.0.16",
     "@fontsource/maitree": "^5.0.8",
