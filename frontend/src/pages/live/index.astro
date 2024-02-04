@@ -1,0 +1,27 @@
+---
+import Layout from '@layouts/Layout.astro';
+import { getConcerts } from '@lib/api';
+import Button from '@components/ui/button.astro';
+
+const shows = await getConcerts();
+---
+
+<Layout title='Bartek Mieżyński'>
+  <h1 transition:name='hero'>Koncerty</h1>
+  {!shows && <p>Brak koncertów</p>}
+  {
+    shows && (
+      <ul class='mt-8'>
+        {shows?.map((show: any) => (
+          <li class='border border-primary w-full px-6 py-4 grid grid-cols-4 gap-4'>
+            <h3 class='col-span-4'>{show.title}</h3>
+            <p>{show.city}</p>
+            <p>{show.date}</p>
+            <p class='col-span-2'>{show.venue}</p>
+            <Button href={show.tickets}>Bilety</Button>
+          </li>
+        ))}
+      </ul>
+    )
+  }
+</Layout>
