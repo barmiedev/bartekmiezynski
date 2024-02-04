@@ -1,6 +1,3 @@
-import externalLink from './externalLink'
-import photo from './photo'
-import release from './release'
-import song from './song'
+import concert from './concert'
 
-export const schemaTypes = [release, photo, song, externalLink]
+export const schemaTypes = [concert]
