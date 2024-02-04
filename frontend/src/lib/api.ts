@@ -5,22 +5,22 @@ async function get(query: string) {
   return data;
 }
 
-export async function getAllReleases() {
-  const query = `*[_type == "release"]`;
+export async function getConcerts() {
+  const query = `*[_type == "concert"]`;
   return get(query);
 }
 
-export async function getCurrentPromoRelease() {
-  const query = `*[_type == "release" && active == true][0]`;
+export async function getSpecificConcert(slug: string) {
+  const query = `*[_type == "concert" && slug.current == "${slug}"][0]`;
   return get(query);
 }
 
-export async function getSpecificRelease(slug: string) {
-  const query = `*[_type == "release" && slug.current == "${slug}"][0]`;
+export async function getLastConcert() {
+  const query = `*[_type == "concert" && date < now()][0]`;
   return get(query);
 }
 
-export async function getImage(ref: string) {
-  const query = `*[_type == "photo" && _id == "${ref}"]{author,photo}[0]`;
+export async function getUpcomingConcerts() {
+  const query = `*[_type == "concert" && date > now()]`;
   return get(query);
 }
