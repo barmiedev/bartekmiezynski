@@ -1,15 +1,15 @@
 {
   "name": "bartekmiezynski",
-  "version": "1.0.alpha",
+  "version": "1.1",
   "dependencies": {
-    "@astrojs/netlify": "^5.0.1",
+    "@astrojs/netlify": "^5.1.2",
     "@astrojs/tailwind": "^5.1.0",
     "@fontsource/inconsolata": "^5.0.16",
     "@fontsource/maitree": "^5.0.8",
-    "@fontsource/playfair-display": "^5.0.18",
-    "@sanity/astro": "2.2.0",
+    "@fontsource/playfair-display": "^5.0.20",
+    "@sanity/astro": "2.2.1",
     "@sanity/image-url": "^1.0.2",
-    "astro": "^4.3.2"
+    "astro": "^4.4.1"
   },
   "scripts": {
     "dev": "astro dev",
@@ -23,7 +23,7 @@
   "devDependencies": {
     "tailwindcss": "^3.4.1",
     "autoprefixer": "^10.4.17",
-    "postcss": "^8.4.33",
+    "postcss": "^8.4.35",
     "prettier-plugin-organize-imports": "^3.2.4",
     "prettier-plugin-astro": "^0.13.0"
   }
