@@ -1,25 +1,15 @@
 ---
 import NavigationGroup from './navigation-group.astro';
-
-export type Link = {
-  href: string;
-  label: string;
-};
+import SocialLink from '@components/ui/social-link.astro';
+import { navigationLinks, socialLinks } from '@data/links';
 ---
 
-<header
-  class='w-screen hidden lg:flex top-0 justify-center fixed h-[70px] z-50 items-center'
->
-  <nav class='container w-full flex items-center justify-between text-text p-8'>
-    <h4>
-      <a href='/'>Bartek Mieżyński</a>
-    </h4>
-    <NavigationGroup
-      links={[
-        { href: '/', label: 'Gorszy Dzień' },
-        { href: '/kontakt/', label: 'Kontakt' },
-        { href: '/live/', label: 'Live' },
-      ]}
-    />
-  </nav>
-</header>
+<section class='flex h-full w-full flex-col justify-between px-8 py-16'>
+  <header>
+    <h1>Bartek Mieżyński</h1>
+  </header>
+  <NavigationGroup links={navigationLinks} />
+  <footer class='ml-auto flex space-x-12'>
+    {socialLinks.map((social) => <SocialLink {...social} />)}
+  </footer>
+</section>
