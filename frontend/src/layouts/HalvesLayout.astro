@@ -1,0 +1,44 @@
+---
+import { ViewTransitions } from 'astro:transitions';
+import Navigation from '@components/navigation/navigation.astro';
+import '@styles/global.css';
+import '@fontsource/playfair-display';
+import '@fontsource/maitree';
+import '@fontsource/inconsolata';
+
+interface Props {
+  title: string;
+  description: string;
+  imageUrl?: string;
+}
+
+const { title, description, imageUrl } = Astro.props;
+---
+
+<!doctype html>
+<html lang='en' class='scroll-smooth bg-background'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='description' content={description} />
+    <meta name='viewport' content='width=device-width' />
+    <link rel='icon' type='image/png' href='/BM-logo.png' />
+    <meta name='generator' content={Astro.generator} />
+    <title>{title}</title>
+    <ViewTransitions />
+  </head>
+  <body class='h-screen'>
+    <main class='absolute grid h-full w-full bg-background lg:grid-cols-2'>
+      <section
+        class='absolute z-10 h-full w-full bg-background/60 backdrop-blur-md lg:relative lg:z-0 lg:bg-background'
+      >
+        LEFT
+      </section>
+      <section
+        class='relative h-full bg-background bg-[image:var(--image-url)] bg-cover bg-center bg-no-repeat text-right'
+        style={{ '--image-url': `url(${imageUrl})` }}
+      >
+        RIGHT
+      </section>
+    </main>
+  </body>
+</html>
