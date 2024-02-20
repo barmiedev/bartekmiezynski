@@ -29,9 +29,9 @@ const { title, description, imageUrl } = Astro.props;
   <body class='h-screen'>
     <main class='absolute grid h-full w-full bg-background lg:grid-cols-2'>
       <section
-        class='absolute z-10 h-full w-full bg-background/60 backdrop-blur-md lg:relative lg:z-0 lg:bg-background'
+        class='absolute z-10 h-full w-full bg-background/60 text-left backdrop-blur-md lg:relative lg:z-0 lg:bg-background lg:text-right'
       >
-        LEFT
+        <Navigation />
       </section>
       <section
         class='relative h-full bg-background bg-[image:var(--image-url)] bg-cover bg-center bg-no-repeat text-right'

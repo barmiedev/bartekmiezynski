@@ -15,29 +15,31 @@
 
 @layer base {
   * {
-    @apply bg-[var(--background)] text-[var(--text)];
-    font-family: 'inconsolata', 'Maitree', sans-serif;
+    @apply text-text;
+    font-family: 'Playfair Display', sans-serif;
   }
+
   html {
     h1 {
-      @apply text-6xl;
-      font-family: 'Playfair Display', sans-serif;
+      @apply lg:text-6xl xl:text-7xl text-4xl sm:text-6xl md:text-7xl 2xl:text-8xl;
     }
+
     h2 {
       @apply text-3xl italic text-[var(--accent)];
-      font-family: 'Playfair Display', sans-serif;
     }
+
     h3 {
       @apply text-2xl text-[var(--tertiary)];
-      font-family: 'Playfair Display', sans-serif;
     }
+
     h4 {
       @apply text-xl;
-      font-family: 'Playfair Display', sans-serif;
     }
   }
+
   body {
     @apply max-h-screen;
+
     svg {
       @apply fill-[var(--tertiary)] hover:fill-[var(--accent)] w-6 h-6 transition-colors duration-100 ease-in-out;
     }
