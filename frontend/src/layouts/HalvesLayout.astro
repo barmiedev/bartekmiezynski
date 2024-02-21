@@ -33,7 +33,7 @@ const {
     <link rel='icon' type='image/png' href='/BM-logo.png' />
     <meta name='generator' content={Astro.generator} />
     <title>{title}</title>
-    <ViewTransitions />
+    <ViewTransitions fallback='swap' />
   </head>
   <body class='h-screen'>
     <main
