@@ -1,6 +1,7 @@
 ---
-import { ViewTransitions } from 'astro:transitions';
+import { ViewTransitions, fade } from 'astro:transitions';
 import Navigation from '@components/navigation/navigation.astro';
+import Mobile from '@components/navigation/mobile.astro';
 import '@styles/global.css';
 import '@fontsource/playfair-display';
 import '@fontsource/maitree';
@@ -10,9 +11,17 @@ interface Props {
   title: string;
   description: string;
   imageUrl?: string;
+  imageBackground?: string;
+  backgroundColor?: string;
 }
 
-const { title, description, imageUrl } = Astro.props;
+const {
+  title,
+  description,
+  imageUrl,
+  imageBackground,
+  backgroundColor = 'bg-background/60',
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -27,17 +36,29 @@ const { title, description, imageUrl } = Astro.props;
     <ViewTransitions />
   </head>
   <body class='h-screen'>
-    <main class='absolute grid h-full w-full bg-background lg:grid-cols-2'>
+    <main
+      class={`${backgroundColor} transition-colors linear duration-500 absolute grid h-full w-full bg-background lg:grid-cols-2`}
+    >
       <section
-        class='absolute z-10 h-full w-full bg-background/60 text-left backdrop-blur-md lg:relative lg:z-0 lg:bg-background lg:text-right'
+        transition:name='nav-bg'
+        class='absolute z-10 h-full w-full text-left backdrop-blur-md lg:relative lg:z-0 lg:text-right'
       >
-        <Navigation />
+        <div class='hidden h-full lg:block'>
+          <Navigation /><slot name='nav' />
+        </div>
+        <div class='block h-full w-full lg:hidden'>
+          <Mobile /><slot name='content' />
+        </div>
       </section>
       <section
-        class='relative h-full bg-background bg-[image:var(--image-url)] bg-cover bg-center bg-no-repeat text-right'
+        transition:name='content-bg'
+        transition:animate={fade({ duration: 500 })}
+        class={`relative h-full rounded-l-3xl ${imageBackground ?? backgroundColor} bg-[image:var(--image-url)] bg-cover bg-center bg-no-repeat text-right shadow-inner`}
         style={{ '--image-url': `url(${imageUrl})` }}
       >
-        RIGHT
+        <div class='hidden h-full w-full lg:block'>
+          <slot name='content' />
+        </div>
       </section>
     </main>
   </body>

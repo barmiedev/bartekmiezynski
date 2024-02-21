@@ -25,7 +25,7 @@
     }
 
     h2 {
-      @apply text-3xl italic text-[var(--accent)];
+      @apply text-4xl italic text-[var(--accent)];
     }
 
     h3 {

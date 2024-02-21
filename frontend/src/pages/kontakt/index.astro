@@ -1,8 +1,22 @@
 ---
-import Layout from '@layouts/Layout.astro';
+import HalvesLayout from '@layouts/HalvesLayout.astro';
 ---
 
-<Layout title='Bartek Mieżyński'>
-  <h1 transition:name='hero'>Kontakt</h1>
-  <h2>Bartek Mieżyński</h2>
-</Layout>
+<HalvesLayout
+  title='Kontakt'
+  description='Napisz do mnie'
+  backgroundColor='bg-emerald-900/10'
+>
+  <div
+    slot='content'
+    class='flex h-full flex-col justify-center space-y-12 px-8 py-16 text-left'
+  >
+    <h2 transition:name='hero'>Kontakt</h2>
+    <p class='break-words text-2xl'>
+      Napisz do mnie na adres <a
+        class='font-bold transition duration-100 hover:cursor-pointer hover:text-accent hover:underline'
+        href='mailto:miezynskibartek@gmail.com'>miezynskibartek@gmail.com</a
+      > lub na Social Mediach.
+    </p>
+  </div>
+</HalvesLayout>
