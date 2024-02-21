@@ -1,0 +1,11 @@
+---
+import NavigationGroup from './navigation-group.astro';
+import { navigationLinks } from '@data/links';
+---
+
+<section class='block lg:hidden'>
+  <header class='fixed w-full items-center space-y-2 px-8 py-8'>
+    <h1>Bartek Mieżyński</h1>
+    <NavigationGroup links={navigationLinks} layout='horizontal' />
+  </header>
+</section>

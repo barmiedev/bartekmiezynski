@@ -13,7 +13,11 @@
   "proseWrap": "preserve",
   "insertPragma": false,
   "printWidth": 80,
-  "plugins": ["prettier-plugin-organize-imports", "prettier-plugin-astro"],
+  "plugins": [
+    "prettier-plugin-organize-imports",
+    "prettier-plugin-astro",
+    "prettier-plugin-tailwindcss"
+  ],
   "requirePragma": false,
   "tabWidth": 2,
   "useTabs": false,

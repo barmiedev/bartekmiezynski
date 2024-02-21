@@ -1,10 +1,10 @@
 ---
-const { href } = Astro.props;
+const { href, blank = true } = Astro.props;
 ---
 
-<a href={href} target='_blank'>
+<a href={href} target={blank ? '_blank' : ''}>
   <button
-    class='border px-4 py-2 bg-secondary text-text border-secondary hover:bg-primary hover:text-text transition-colors duration-150'
+    class='border border-secondary bg-secondary px-4 py-2 text-text transition-colors duration-150 hover:bg-primary hover:text-text'
   >
     <slot />
   </button>

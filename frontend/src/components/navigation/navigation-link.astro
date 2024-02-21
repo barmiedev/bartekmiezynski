@@ -1,14 +1,14 @@
 ---
-import type { Link } from './navigation.astro';
+import type { Link } from '@data/links';
 
-const { href, label } = Astro.props as Link;
+const { href, name } = Astro.props as Link;
 const isActive = Astro.url.pathname === href;
 ---
 
 <li
-  class={`transition-colors duration-100 text-lg ${
+  class={`transition-colors duration-100 text-2xl md:text-3xl xl:text-4xl 2xl:text-5xl ${
     isActive ? 'text-primary' : 'hover:text-accent'
   }`}
 >
-  <a href={href}>{label}</a>
+  <a href={href}>{name}</a>
 </li>

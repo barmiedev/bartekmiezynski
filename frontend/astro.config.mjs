@@ -1,6 +1,8 @@
-import netlify from '@astrojs/netlify/functions';
+import netlify from '@astrojs/netlify';
 import tailwind from '@astrojs/tailwind';
 import { sanityIntegration } from '@sanity/astro';
+import embeds from 'astro-embed/integration';
+import icon from 'astro-icon';
 import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
@@ -14,6 +16,27 @@ export default defineConfig({
       useCdn: true,
       token: import.meta.env.VITE_SANITY_TOKEN,
     }),
+    icon({
+      svgoOptions: {
+        multipass: true,
+        plugins: [
+          {
+            name: 'preset-default',
+            params: {
+              overrides: {
+                // customize default plugin options
+                inlineStyles: {
+                  onlyMatchedOnce: false,
+                },
+                // or disable plugins
+                removeDoctype: false,
+              },
+            },
+          },
+        ],
+      },
+    }),
+    embeds(),
   ],
   output: 'server',
   adapter: netlify(),

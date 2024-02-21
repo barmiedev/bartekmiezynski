@@ -1,0 +1,14 @@
+---
+import { Icon } from 'astro-icon/components';
+
+export type Props = {
+  href: string;
+  name: string;
+};
+
+const { href, name } = Astro.props;
+---
+
+<a href={href} aria-label={name} target='_blank'>
+  <Icon is:inline name={`fa6-brands:${name}`} class='h-12 w-12' />
+</a>

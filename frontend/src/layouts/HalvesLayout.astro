@@ -1,0 +1,71 @@
+---
+import { ViewTransitions, fade } from 'astro:transitions';
+import Navigation from '@components/navigation/navigation.astro';
+import Mobile from '@components/navigation/mobile.astro';
+import '@styles/global.css';
+import '@fontsource/playfair-display';
+import '@fontsource/maitree';
+import '@fontsource/inconsolata';
+
+interface Props {
+  title: string;
+  description: string;
+  imageUrl?: string;
+  imageBackground?: string;
+  backgroundColor?: string;
+}
+
+const {
+  title,
+  description,
+  imageUrl,
+  imageBackground,
+  backgroundColor = 'bg-background/60',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang='en' class='scroll-smooth bg-background'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='description' content={description} />
+    <meta name='viewport' content='width=device-width' />
+    <link rel='icon' type='image/png' href='/BM-logo.png' />
+    <meta name='generator' content={Astro.generator} />
+    <title>{title}</title>
+    <ViewTransitions fallback='swap' />
+
+    <!-- social media -->
+    <meta property='og:title' content='Bartek Mieżyński' />
+    <meta property='og:type' content='website' />
+    <meta property='og:url' content={Astro.site} />
+    <meta property='og:image' content='/BM-profil.jpg' />
+    <meta property='og:description' content={description} />
+  </head>
+  <body class='h-screen'>
+    <main
+      class={`${backgroundColor} transition-colors linear duration-200 absolute grid h-full w-full bg-background lg:grid-cols-3`}
+    >
+      <section
+        transition:name='nav-bg'
+        class='absolute z-10 h-full w-full text-left backdrop-blur-md lg:relative lg:z-0 lg:text-right'
+      >
+        <div class='hidden h-full lg:block'>
+          <Navigation /><slot name='nav' />
+        </div>
+        <div class='block h-full w-full lg:hidden'>
+          <Mobile /><slot name='content' />
+        </div>
+      </section>
+      <section
+        transition:name='content-bg'
+        class={`relative h-full rounded-l-3xl ${imageBackground ?? backgroundColor} bg-[image:var(--image-url)] bg-cover bg-center bg-no-repeat text-right shadow-inner col-span-2`}
+        style={{ '--image-url': `url(${imageUrl})` }}
+      >
+        <div class='hidden h-full w-full backdrop-blur-md lg:block'>
+          <slot name='content' />
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

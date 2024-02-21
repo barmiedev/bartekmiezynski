@@ -1,10 +1,21 @@
 ---
 import NavigationLink from './navigation-link.astro';
-import type { Link } from './navigation.astro';
+import type { Link } from '@data/links';
 
-const { links } = Astro.props;
+type Props = {
+  links: Link[];
+  layout?: 'horizontal' | 'vertical';
+};
+
+const verticalClass = 'flex-col space-y-4 2xl:space-y-8';
+const horizontalClass =
+  'py-2 w-full overflow-x-scroll break-before-auto space-x-4 2xl:space-x-8 [-webkit-mask:linear-gradient(90deg,0%_0%,_0%_100%,from(rgb(0,0,0)),to(rgba(0,0,0,0))]';
+
+const { links, layout = 'vertical' } = Astro.props;
+
+const styling = layout === 'vertical' ? verticalClass : horizontalClass;
 ---
 
-<ul class='flex space-x-12'>
+<ul class={`flex ${styling}`}>
   {links.map((link: Link) => <NavigationLink {...link} />)}
 </ul>
