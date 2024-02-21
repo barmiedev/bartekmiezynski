@@ -37,7 +37,7 @@ const {
   </head>
   <body class='h-screen'>
     <main
-      class={`${backgroundColor} transition-colors linear duration-500 absolute grid h-full w-full bg-background lg:grid-cols-3`}
+      class={`${backgroundColor} transition-colors linear duration-200 absolute grid h-full w-full bg-background lg:grid-cols-3`}
     >
       <section
         transition:name='nav-bg'
@@ -52,7 +52,6 @@ const {
       </section>
       <section
         transition:name='content-bg'
-        transition:animate={fade({ duration: 500 })}
         class={`relative h-full rounded-l-3xl ${imageBackground ?? backgroundColor} bg-[image:var(--image-url)] bg-cover bg-center bg-no-repeat text-right shadow-inner col-span-2`}
         style={{ '--image-url': `url(${imageUrl})` }}
       >
