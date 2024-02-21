@@ -2,6 +2,7 @@
 import SocialLink from '@components/ui/social-link.astro';
 import { socialLinks } from '@data/links';
 import HalvesLayout from '@layouts/HalvesLayout.astro';
+import { YouTube } from 'astro-embed';
 ---
 
 <HalvesLayout
@@ -9,9 +10,22 @@ import HalvesLayout from '@layouts/HalvesLayout.astro';
   description='Dom'
   imageUrl='https://f4.bcbits.com/img/0034272772_10.jpg'
 >
-  <div class='grid h-full w-full place-items-center lg:hidden' slot='content'>
-    <div class='grid grid-cols-2 gap-8 sm:grid-cols-4'>
-      {socialLinks.map((social) => <SocialLink {...social} />)}
+  <div
+    class='grid h-full w-full place-items-center bg-background/30'
+    slot='content'
+  >
+    <div class='w-3/4 space-y-8 2xl:w-1/2'>
+      <div class='flex w-full items-center justify-center'>
+        <YouTube
+          id='https://www.youtube.com/watch?v=rc0W2RWGKt8'
+          class='w-full rounded-2xl'
+        />
+      </div>
+      <div
+        class='grid grid-flow-row-dense grid-cols-2 place-items-center gap-8 sm:grid-cols-4 lg:hidden'
+      >
+        {socialLinks.map((social) => <SocialLink {...social} />)}
+      </div>
     </div>
   </div>
 </HalvesLayout>

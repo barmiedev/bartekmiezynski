@@ -1,6 +1,7 @@
 import netlify from '@astrojs/netlify';
 import tailwind from '@astrojs/tailwind';
 import { sanityIntegration } from '@sanity/astro';
+import embeds from 'astro-embed/integration';
 import icon from 'astro-icon';
 import { defineConfig } from 'astro/config';
 
@@ -35,6 +36,7 @@ export default defineConfig({
         ],
       },
     }),
+    embeds(),
   ],
   output: 'server',
   adapter: netlify(),

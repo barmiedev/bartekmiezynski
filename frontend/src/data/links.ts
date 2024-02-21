@@ -5,8 +5,6 @@ export type Link = {
 
 export const navigationLinks: Link[] = [
   { href: '/', name: 'Dom' },
-  { href: '/muzyka', name: 'Muzyka' },
-  { href: '/koncert', name: 'Koncert' },
   { href: '/kontakt', name: 'Kontakt' },
 ];
 
