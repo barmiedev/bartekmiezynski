@@ -34,6 +34,13 @@ const {
     <meta name='generator' content={Astro.generator} />
     <title>{title}</title>
     <ViewTransitions fallback='swap' />
+
+    <!-- social media -->
+    <meta property='og:title' content='Bartek Mieżyński' />
+    <meta property='og:type' content='website' />
+    <meta property='og:url' content={Astro.site} />
+    <meta property='og:image' content='/BM-profil.jpg' />
+    <meta property='og:description' content={description} />
   </head>
   <body class='h-screen'>
     <main
