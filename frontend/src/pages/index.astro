@@ -1,4 +1,6 @@
 ---
+import SocialLink from '@components/ui/social-link.astro';
+import { socialLinks } from '@data/links';
 import HalvesLayout from '@layouts/HalvesLayout.astro';
 ---
 
@@ -6,4 +8,10 @@ import HalvesLayout from '@layouts/HalvesLayout.astro';
   title='Bartek Mieżyński'
   description='Dom'
   imageUrl='https://f4.bcbits.com/img/0034272772_10.jpg'
-/>
+>
+  <div class='grid h-full w-full place-items-center lg:hidden' slot='content'>
+    <div class='grid grid-cols-2 gap-8 sm:grid-cols-4'>
+      {socialLinks.map((social) => <SocialLink {...social} />)}
+    </div>
+  </div>
+</HalvesLayout>
